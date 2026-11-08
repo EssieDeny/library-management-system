@@ -16,7 +16,7 @@ import { UpdateBookDto } from './dto/update-book.dto.js';
 
 import { JwtAuthGuard } from '../auth/jwt-auth.guard.js';
 import { RolesGuard } from '../auth/roles.guard.js';
-import { Roles } from '../auth/decorators/roles.decorator.js';
+import { Roles } from '../auth/roles.decorator.js';
 
 @Controller('books')
 export class BooksController {
