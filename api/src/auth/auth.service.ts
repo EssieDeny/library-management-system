@@ -1,3 +1,4 @@
+
 import {
   ConflictException,
   Injectable,
@@ -37,10 +38,19 @@ export class AuthService {
       },
     });
 
-    const { password, ...safeUser } = user;
+    const payload = {
+      sub: user.id,
+      email: user.email,
+      role: user.role,
+    };
+
+    const accessToken = await this.jwtService.signAsync(payload);
+
+    const { password: _password, ...safeUser } = user;
 
     return {
       message: 'Registration successful',
+      access_token: accessToken,
       user: safeUser,
     };
   }
@@ -72,7 +82,7 @@ export class AuthService {
 
     const accessToken = await this.jwtService.signAsync(payload);
 
-    const { password, ...safeUser } = user;
+    const { password: _password, ...safeUser } = user;
 
     return {
       message: 'Login successful',
