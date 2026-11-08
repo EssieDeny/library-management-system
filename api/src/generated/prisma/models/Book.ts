@@ -28,10 +28,12 @@ export type AggregateBook = {
 
 export type BookAvgAggregateOutputType = {
   publishedYear: number | null
+  totalCopies: number | null
 }
 
 export type BookSumAggregateOutputType = {
   publishedYear: number | null
+  totalCopies: number | null
 }
 
 export type BookMinAggregateOutputType = {
@@ -40,6 +42,7 @@ export type BookMinAggregateOutputType = {
   author: string | null
   isbn: string | null
   publishedYear: number | null
+  totalCopies: number | null
   genreId: string | null
   createdAt: Date | null
 }
@@ -50,6 +53,7 @@ export type BookMaxAggregateOutputType = {
   author: string | null
   isbn: string | null
   publishedYear: number | null
+  totalCopies: number | null
   genreId: string | null
   createdAt: Date | null
 }
@@ -60,6 +64,7 @@ export type BookCountAggregateOutputType = {
   author: number
   isbn: number
   publishedYear: number
+  totalCopies: number
   genreId: number
   createdAt: number
   _all: number
@@ -68,10 +73,12 @@ export type BookCountAggregateOutputType = {
 
 export type BookAvgAggregateInputType = {
   publishedYear?: true
+  totalCopies?: true
 }
 
 export type BookSumAggregateInputType = {
   publishedYear?: true
+  totalCopies?: true
 }
 
 export type BookMinAggregateInputType = {
@@ -80,6 +87,7 @@ export type BookMinAggregateInputType = {
   author?: true
   isbn?: true
   publishedYear?: true
+  totalCopies?: true
   genreId?: true
   createdAt?: true
 }
@@ -90,6 +98,7 @@ export type BookMaxAggregateInputType = {
   author?: true
   isbn?: true
   publishedYear?: true
+  totalCopies?: true
   genreId?: true
   createdAt?: true
 }
@@ -100,6 +109,7 @@ export type BookCountAggregateInputType = {
   author?: true
   isbn?: true
   publishedYear?: true
+  totalCopies?: true
   genreId?: true
   createdAt?: true
   _all?: true
@@ -197,6 +207,7 @@ export type BookGroupByOutputType = {
   author: string
   isbn: string | null
   publishedYear: number | null
+  totalCopies: number
   genreId: string
   createdAt: Date
   _count: BookCountAggregateOutputType | null
@@ -230,6 +241,7 @@ export type BookWhereInput = {
   author?: Prisma.StringFilter<"Book"> | string
   isbn?: Prisma.StringNullableFilter<"Book"> | string | null
   publishedYear?: Prisma.IntNullableFilter<"Book"> | number | null
+  totalCopies?: Prisma.IntFilter<"Book"> | number
   genreId?: Prisma.StringFilter<"Book"> | string
   createdAt?: Prisma.DateTimeFilter<"Book"> | Date | string
   genre?: Prisma.XOR<Prisma.GenreScalarRelationFilter, Prisma.GenreWhereInput>
@@ -242,6 +254,7 @@ export type BookOrderByWithRelationInput = {
   author?: Prisma.SortOrder
   isbn?: Prisma.SortOrderInput | Prisma.SortOrder
   publishedYear?: Prisma.SortOrderInput | Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
   genreId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   genre?: Prisma.GenreOrderByWithRelationInput
@@ -257,6 +270,7 @@ export type BookWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Book"> | string
   author?: Prisma.StringFilter<"Book"> | string
   publishedYear?: Prisma.IntNullableFilter<"Book"> | number | null
+  totalCopies?: Prisma.IntFilter<"Book"> | number
   genreId?: Prisma.StringFilter<"Book"> | string
   createdAt?: Prisma.DateTimeFilter<"Book"> | Date | string
   genre?: Prisma.XOR<Prisma.GenreScalarRelationFilter, Prisma.GenreWhereInput>
@@ -269,6 +283,7 @@ export type BookOrderByWithAggregationInput = {
   author?: Prisma.SortOrder
   isbn?: Prisma.SortOrderInput | Prisma.SortOrder
   publishedYear?: Prisma.SortOrderInput | Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
   genreId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.BookCountOrderByAggregateInput
@@ -287,6 +302,7 @@ export type BookScalarWhereWithAggregatesInput = {
   author?: Prisma.StringWithAggregatesFilter<"Book"> | string
   isbn?: Prisma.StringNullableWithAggregatesFilter<"Book"> | string | null
   publishedYear?: Prisma.IntNullableWithAggregatesFilter<"Book"> | number | null
+  totalCopies?: Prisma.IntWithAggregatesFilter<"Book"> | number
   genreId?: Prisma.StringWithAggregatesFilter<"Book"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Book"> | Date | string
 }
@@ -297,6 +313,7 @@ export type BookCreateInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   createdAt?: Date | string
   genre: Prisma.GenreCreateNestedOneWithoutBooksInput
   reviews?: Prisma.ReviewCreateNestedManyWithoutBookInput
@@ -308,6 +325,7 @@ export type BookUncheckedCreateInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   genreId: string
   createdAt?: Date | string
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutBookInput
@@ -319,6 +337,7 @@ export type BookUpdateInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   genre?: Prisma.GenreUpdateOneRequiredWithoutBooksNestedInput
   reviews?: Prisma.ReviewUpdateManyWithoutBookNestedInput
@@ -330,6 +349,7 @@ export type BookUncheckedUpdateInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutBookNestedInput
@@ -341,6 +361,7 @@ export type BookCreateManyInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   genreId: string
   createdAt?: Date | string
 }
@@ -351,6 +372,7 @@ export type BookUpdateManyMutationInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -360,6 +382,7 @@ export type BookUncheckedUpdateManyInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -380,12 +403,14 @@ export type BookCountOrderByAggregateInput = {
   author?: Prisma.SortOrder
   isbn?: Prisma.SortOrder
   publishedYear?: Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
   genreId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type BookAvgOrderByAggregateInput = {
   publishedYear?: Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
 }
 
 export type BookMaxOrderByAggregateInput = {
@@ -394,6 +419,7 @@ export type BookMaxOrderByAggregateInput = {
   author?: Prisma.SortOrder
   isbn?: Prisma.SortOrder
   publishedYear?: Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
   genreId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -404,12 +430,14 @@ export type BookMinOrderByAggregateInput = {
   author?: Prisma.SortOrder
   isbn?: Prisma.SortOrder
   publishedYear?: Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
   genreId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type BookSumOrderByAggregateInput = {
   publishedYear?: Prisma.SortOrder
+  totalCopies?: Prisma.SortOrder
 }
 
 export type BookScalarRelationFilter = {
@@ -467,6 +495,14 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type BookCreateNestedOneWithoutReviewsInput = {
   create?: Prisma.XOR<Prisma.BookCreateWithoutReviewsInput, Prisma.BookUncheckedCreateWithoutReviewsInput>
   connectOrCreate?: Prisma.BookCreateOrConnectWithoutReviewsInput
@@ -487,6 +523,7 @@ export type BookCreateWithoutGenreInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   createdAt?: Date | string
   reviews?: Prisma.ReviewCreateNestedManyWithoutBookInput
 }
@@ -497,6 +534,7 @@ export type BookUncheckedCreateWithoutGenreInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   createdAt?: Date | string
   reviews?: Prisma.ReviewUncheckedCreateNestedManyWithoutBookInput
 }
@@ -536,6 +574,7 @@ export type BookScalarWhereInput = {
   author?: Prisma.StringFilter<"Book"> | string
   isbn?: Prisma.StringNullableFilter<"Book"> | string | null
   publishedYear?: Prisma.IntNullableFilter<"Book"> | number | null
+  totalCopies?: Prisma.IntFilter<"Book"> | number
   genreId?: Prisma.StringFilter<"Book"> | string
   createdAt?: Prisma.DateTimeFilter<"Book"> | Date | string
 }
@@ -546,6 +585,7 @@ export type BookCreateWithoutReviewsInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   createdAt?: Date | string
   genre: Prisma.GenreCreateNestedOneWithoutBooksInput
 }
@@ -556,6 +596,7 @@ export type BookUncheckedCreateWithoutReviewsInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   genreId: string
   createdAt?: Date | string
 }
@@ -582,6 +623,7 @@ export type BookUpdateWithoutReviewsInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   genre?: Prisma.GenreUpdateOneRequiredWithoutBooksNestedInput
 }
@@ -592,6 +634,7 @@ export type BookUncheckedUpdateWithoutReviewsInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -602,6 +645,7 @@ export type BookCreateManyGenreInput = {
   author: string
   isbn?: string | null
   publishedYear?: number | null
+  totalCopies?: number
   createdAt?: Date | string
 }
 
@@ -611,6 +655,7 @@ export type BookUpdateWithoutGenreInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviews?: Prisma.ReviewUpdateManyWithoutBookNestedInput
 }
@@ -621,6 +666,7 @@ export type BookUncheckedUpdateWithoutGenreInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviews?: Prisma.ReviewUncheckedUpdateManyWithoutBookNestedInput
 }
@@ -631,6 +677,7 @@ export type BookUncheckedUpdateManyWithoutGenreInput = {
   author?: Prisma.StringFieldUpdateOperationsInput | string
   isbn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   publishedYear?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  totalCopies?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -671,6 +718,7 @@ export type BookSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   author?: boolean
   isbn?: boolean
   publishedYear?: boolean
+  totalCopies?: boolean
   genreId?: boolean
   createdAt?: boolean
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
@@ -684,6 +732,7 @@ export type BookSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   author?: boolean
   isbn?: boolean
   publishedYear?: boolean
+  totalCopies?: boolean
   genreId?: boolean
   createdAt?: boolean
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
@@ -695,6 +744,7 @@ export type BookSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   author?: boolean
   isbn?: boolean
   publishedYear?: boolean
+  totalCopies?: boolean
   genreId?: boolean
   createdAt?: boolean
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
@@ -706,11 +756,12 @@ export type BookSelectScalar = {
   author?: boolean
   isbn?: boolean
   publishedYear?: boolean
+  totalCopies?: boolean
   genreId?: boolean
   createdAt?: boolean
 }
 
-export type BookOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "author" | "isbn" | "publishedYear" | "genreId" | "createdAt", ExtArgs["result"]["book"]>
+export type BookOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "author" | "isbn" | "publishedYear" | "totalCopies" | "genreId" | "createdAt", ExtArgs["result"]["book"]>
 export type BookInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
   reviews?: boolean | Prisma.Book$reviewsArgs<ExtArgs>
@@ -735,6 +786,7 @@ export type $BookPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     author: string
     isbn: string | null
     publishedYear: number | null
+    totalCopies: number
     genreId: string
     createdAt: Date
   }, ExtArgs["result"]["book"]>
@@ -1167,6 +1219,7 @@ export interface BookFieldRefs {
   readonly author: Prisma.FieldRef<"Book", 'String'>
   readonly isbn: Prisma.FieldRef<"Book", 'String'>
   readonly publishedYear: Prisma.FieldRef<"Book", 'Int'>
+  readonly totalCopies: Prisma.FieldRef<"Book", 'Int'>
   readonly genreId: Prisma.FieldRef<"Book", 'String'>
   readonly createdAt: Prisma.FieldRef<"Book", 'DateTime'>
 }

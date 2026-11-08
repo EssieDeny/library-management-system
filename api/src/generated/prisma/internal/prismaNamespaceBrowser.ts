@@ -77,6 +77,7 @@ export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
+  password: 'password',
   role: 'role',
   createdAt: 'createdAt'
 } as const
@@ -99,6 +100,7 @@ export const BookScalarFieldEnum = {
   author: 'author',
   isbn: 'isbn',
   publishedYear: 'publishedYear',
+  totalCopies: 'totalCopies',
   genreId: 'genreId',
   createdAt: 'createdAt'
 } as const
